@@ -1,6 +1,9 @@
 from typing import List
 class Solution:
     # Simulate the game
+    # Time Complexity: O(1) because the game is always at most 9 moves long.
+    # Technically it's θ(n) where n is the number of moves, but since n is always at most 9, it's O(1).
+    # Space Complexity: O(1) because the grid is always 3x3.
     def tictactoe(self, moves: List[List[int]]) -> str:
         grid = [[None for _ in range(3)] for _ in range(3)]
         for i, move in enumerate(moves):
