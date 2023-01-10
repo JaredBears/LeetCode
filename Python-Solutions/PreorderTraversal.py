@@ -17,8 +17,8 @@ class Solution:
     # For pre-order traversal, we must add the right tree to the stack first, since we access the last
     # element.
     # Time complexity: O(n) where n is the number of nodes in the tree
-    # Space complexity: 
-    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    # Space complexity: O(n)
+    def preorderTraversalIterative(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return []
         answer = []
@@ -28,4 +28,23 @@ class Solution:
             answer.append(curr.val)
             if curr.right: stack.append(curr.right)
             if curr.left: stack.append(curr.left)
+        return answer
+
+    # For the recursive solution, we create a helper function that takes in a node.  We append the node's
+    # value to the answer array.  We then check if the left child exists, and if it does, we call the
+    # helper function on the left child.  We then check if the right child exists, and if it does, we
+    # call the helper function on the right child.  We then return the answer array.
+    # Unlike with the iterative approach, this time we will need to process the left child before the
+    # right child.
+    # Time complexity: O(n) where n is the number of nodes in the tree
+    # Space complexity: O(n)
+    def preorderTraversalRecursive(self, root: Optional[TreeNode]) -> List[int]:
+        answer = []
+        def preorder(node: TreeNode) -> None:
+            answer.append(node.val)
+            if node.left: preorder(node.left)
+            if node.right: preorder(node.right)
+        if not root:
+            return []
+        preorder(root)
         return answer
