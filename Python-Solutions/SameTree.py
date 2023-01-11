@@ -15,7 +15,7 @@ class Solution:
     # doesn't match, I return false.  If it does, I add the right and left children to their respective
     # stacks.  
     # Once I reach the end of the loop, if one stack still has children to process then I return False.
-    # If not, I return because I reached the end without finding any differences.
+    # If not, I return True because I reached the end without finding any differences.
     # Time Complexity: O(n) where n is the number of nodes in the smallest tree.
     # Space Complexity: O(n)
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
